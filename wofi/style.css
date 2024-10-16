@@ -1,0 +1,38 @@
+* {
+	border-radius: 3px;
+	border: none;
+}
+
+window {
+	font-size: 18;
+	background-color: rgba(16, 21, 26, 0.3);
+	font-family: "FiraCode Nerd";
+	color: white;
+}
+
+#expander-box {
+	background-color: rgba(16, 21, 26, 0.4);
+}
+
+#entry:selected {
+	padding: 5px;
+}
+
+#entry:selected {
+	background-color: #84ccc7;
+}
+
+#text:selected {
+	color: #222222;
+}
+
+#input {
+	background-color: rgba(16, 21, 26, 0.4);
+	color: white;
+	padding: 5px;
+}
+
+image {
+	margin-left: 5px;
+	margin-right: 5px;
+}
