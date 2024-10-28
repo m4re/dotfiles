@@ -20,6 +20,8 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
@@ -29,8 +31,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
-
 -- Fixes bug in treesitter where everything between #ifdef and #endif is highlighted as comment
-vim.api.nvim_set_hl(0, '@lsp.type.comment.c', {})
-vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
+vim.api.nvim_set_hl(0, "@lsp.type.comment.c", {})
+vim.api.nvim_set_hl(0, "@lsp.type.comment.cpp", {})
