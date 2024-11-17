@@ -7,13 +7,14 @@
 !dunst/
 !dunst/*
 
+!gammastep/
+!gammastep/*
+
 !kitty/
 !kitty/*
 
 !nvim/
 !nvim/*
-!nvim-backup/
-!nvim-backup/*
 
 !systemd/
 !systemd/*
