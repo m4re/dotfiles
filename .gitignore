@@ -13,6 +13,9 @@
 !kitty/
 !kitty/*
 
+!ghostty/
+!ghostty/*
+
 !nvim/
 !nvim/*
 
