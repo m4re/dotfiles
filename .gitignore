@@ -43,6 +43,9 @@
 !hypr/
 !hypr/*
 
+!tmux/
+!tmux/*
+
 !wofi/
 !wofi/*
 
