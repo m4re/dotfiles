@@ -9,6 +9,7 @@ return {
 				"diff",
 				"glsl",
 				"html",
+				"java",
 				"lua",
 				"luadoc",
 				"markdown",

@@ -125,11 +125,9 @@ return {
 					jdtls = function()
 						require("lspconfig").jdtls.setup({})
 					end,
-					glsl_analyzer = function()
-						require("lspconfig").glsl_analyzer.setup({})
-					end,
 				},
 			})
+			require("lspconfig").glsl_analyzer.setup({})
 		end,
 	},
 }
