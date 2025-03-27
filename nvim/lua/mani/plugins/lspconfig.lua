@@ -34,6 +34,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
+			"saghen/blink.cmp",
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -87,9 +88,7 @@ return {
 					end
 				end,
 			})
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local servers = {
 				clangd = {},
 				pyright = {},
@@ -123,11 +122,26 @@ return {
 						require("lspconfig")[server_name].setup(server)
 					end,
 					jdtls = function()
-						require("lspconfig").jdtls.setup({})
+						require("lspconfig").jdtls.setup({
+							capabilities = capabilities,
+							settings = {
+								java = {
+									project = {
+										sourcePaths = { "src" },
+										referencedLibraries = {
+											"~/Documents/Studium/CG/2025/jogamp-all-platforms/jar/jogl-all.jar",
+											"~/Documents/Studium/CG/2025/jogamp-all-platforms/jar/gluegen.jar",
+										},
+									},
+								},
+							},
+						})
+					end,
+					glsl_analyzer = function()
+						require("lspconfig").glsl_analyzer.setup({ capabilities = capabilities })
 					end,
 				},
 			})
-			require("lspconfig").glsl_analyzer.setup({})
 		end,
 	},
 }
