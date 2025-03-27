@@ -1,0 +1,39 @@
+return {
+	"saghen/blink.cmp",
+	dependencies = { "rafamadriz/friendly-snippets" },
+
+	version = "1.*",
+	opts = {
+		keymap = { preset = "default" },
+
+		appearance = {
+			nerd_font_variant = "mono",
+		},
+		signature = { enabled = true },
+
+		fuzzy = { implementation = "prefer_rust_with_warning" },
+	},
+
+	completion = {
+		menu = {
+			draw = {
+				treesitter = { "lsp" },
+			},
+		},
+
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 200,
+		},
+	},
+
+	sources = {
+		default = {
+			"lsp",
+			"path",
+			"snippets",
+		},
+	},
+
+	opts_extend = { "sources.default" },
+}
