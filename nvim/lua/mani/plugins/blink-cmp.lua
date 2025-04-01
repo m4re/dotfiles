@@ -1,9 +1,13 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
-
+	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 	version = "1.*",
 	opts = {
+		snippets = { preset = "luasnip" },
+		-- ensure you have the `snippets` source (enabled by default)
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer" },
+		},
 		keymap = { preset = "default" },
 
 		appearance = {
@@ -12,26 +16,17 @@ return {
 		signature = { enabled = true },
 
 		fuzzy = { implementation = "prefer_rust_with_warning" },
-	},
-
-	completion = {
-		menu = {
-			draw = {
-				treesitter = { "lsp" },
+		completion = {
+			menu = {
+				draw = {
+					treesitter = { "lsp" },
+				},
 			},
-		},
 
-		documentation = {
-			auto_show = true,
-			auto_show_delay_ms = 200,
-		},
-	},
-
-	sources = {
-		default = {
-			"lsp",
-			"path",
-			"snippets",
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 200,
+			},
 		},
 	},
 
