@@ -10,28 +10,6 @@ return {
 	},
 	{ "Bilal2453/luvit-meta", lazy = true },
 	{
-		"nvim-java/nvim-java",
-		dependencies = {
-			"nvim-java/lua-async-await",
-			"nvim-java/nvim-java-core",
-			"nvim-java/nvim-java-test",
-			"nvim-java/nvim-java-dap",
-			"nvim-java/nvim-java-refactor",
-			"MunifTanjim/nui.nvim",
-			"neovim/nvim-lspconfig",
-			"mfussenegger/nvim-dap",
-			{
-				"williamboman/mason.nvim",
-				opts = {
-					registries = {
-						"github:nvim-java/mason-registry",
-						"github:mason-org/mason-registry",
-					},
-				},
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
@@ -63,6 +41,10 @@ return {
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+					vim.diagnostic.config({
+						virtual_lines = true,
+					})
+
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
@@ -89,11 +71,13 @@ return {
 				end,
 			})
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 			local servers = {
-				clangd = {},
-				pyright = {},
+				clangd = { capabilities = capabilities },
+				pyright = { capabilities = capabilities },
 				lua_ls = {
 					settings = {
+						capabilities = capabilities,
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
@@ -102,7 +86,12 @@ return {
 						},
 					},
 				},
+				jdtls = {},
 			}
+
+			vim.lsp.config("*", {
+				capabilities = capabilities,
+			})
 
 			require("mason").setup()
 
@@ -112,30 +101,12 @@ return {
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			require("java").setup({})
-
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
-					end,
-					jdtls = function()
-						require("lspconfig").jdtls.setup({
-							capabilities = capabilities,
-							settings = {
-								java = {
-									project = {
-										sourcePaths = { "src" },
-										referencedLibraries = {
-											"~/Documents/Studium/CG/2025/jogamp-all-platforms/jar/jogl-all.jar",
-											"~/Documents/Studium/CG/2025/jogamp-all-platforms/jar/gluegen.jar",
-										},
-									},
-								},
-							},
-						})
 					end,
 					glsl_analyzer = function()
 						require("lspconfig").glsl_analyzer.setup({ capabilities = capabilities })
