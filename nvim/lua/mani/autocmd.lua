@@ -10,10 +10,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Enable spell-checking when opening certain filetypes",
 	pattern = { "text", "markdown", "plaintex" },
 	callback = function()
-		vim.schedule(function()
-			vim.opt.spelllang = { "en_us", "de_at" }
-			vim.opt.spell = true
-			vim.opt.textwidth = 80
-		end)
+		vim.opt.spelllang = { "en_us", "de_at" }
+		vim.opt.spell = true
+		vim.opt.textwidth = 80
 	end,
 })
