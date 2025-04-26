@@ -9,14 +9,14 @@ font pango:FiraCodeNerdFont, monospace 0
 #font pango:DejaVu Sans Mono 8
 
 # Set border size to 1 pixel
-default_border pixel 50
-default_floating_border pixel 50
+default_border pixel 2
+default_floating_border pixel 2
 # Disable borders when only one window is active
 hide_edge_borders smart
 
 # Gaps
 # Gaps between windows
-gaps inner 10px
+gaps inner 8px
 # Gaps along screen edges
 # gaps outer 1px
 # Smart Gaps disables outer gaps when there is only one active window
@@ -38,7 +38,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Setting up display-order and deactivating screensaver and power management
-exec --no-startup-id xrandr --output DP-3 --auto --output DP-5 --auto --primary --right-of DP-3
+exec --no-startup-id xrandr --output DP-5 --auto --output DP-3 --auto --primary --right-of DP-5
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
@@ -54,6 +54,7 @@ exec --no-startup-id volumeicon
 exec --no-startup-id dunst
 exec --no-startup-id udiskie -t &
 exec --no-startup-id redshift-gtk
+exec_always autotiling
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
