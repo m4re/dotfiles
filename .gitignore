@@ -45,6 +45,7 @@
 
 !tmux/
 !tmux/*
+tmux/plugins
 
 !wofi/
 !wofi/*
