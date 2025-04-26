@@ -87,6 +87,15 @@ return {
 					},
 				},
 				jdtls = {},
+				ts_ls = {
+					capabilities = capabilities,
+					init_options = {
+						preferences = {
+							disableSuggestions = true,
+						},
+					},
+				},
+				html = {},
 			}
 
 			vim.lsp.config("*", {
