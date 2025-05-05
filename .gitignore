@@ -58,3 +58,6 @@ tmux/plugins
 
 !zsh/
 !zsh/*
+
+!kanata/
+!kanata/*
