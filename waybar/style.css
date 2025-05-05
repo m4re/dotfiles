@@ -120,7 +120,6 @@ button:hover {
 
 #clock {
     background-color: transparent;
-    padding-top: 3px;
 }
 
 #battery {
@@ -157,18 +156,18 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
+    background-color: transparent;
     color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
+    background-color: transparent;
     color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 label:focus {
@@ -185,7 +184,6 @@ label:focus {
 
 #disk {
     background-color: transparent;
-    padding-top: 3px;
 }
 
 #backlight {
@@ -234,7 +232,6 @@ label:focus {
 
 #temperature {
     background-color: transparent;
-    padding-top: 2px;
 }
 
 #temperature.critical {
