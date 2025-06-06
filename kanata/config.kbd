@@ -1,0 +1,41 @@
+;; defsrc is still necessary
+(defcfg
+  process-unmapped-keys yes
+)
+(deflocalkeys-linux
+  ß    12
+  ´    13
+  z    21
+  ü    26
+  +    27
+  ö    39
+  ä    40
+  <    86
+  #    43
+  y    44
+  -    53
+  ^    41
+)
+
+(defsrc
+  a s d f j k l ;
+)
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  a (tap-hold $tap-time $hold-time a lalt)
+  s (tap-hold $tap-time $hold-time s lmet)
+  d (tap-hold $tap-time $hold-time d lctl)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j rsft)
+  k (tap-hold $tap-time $hold-time k rctl)
+  l (tap-hold $tap-time $hold-time l rmet)
+  ; (tap-hold $tap-time $hold-time ; ralt)
+)
+
+(deflayer base
+  @a @s @d @f @j @k @l @;
+)
