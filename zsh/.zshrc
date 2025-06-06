@@ -1,7 +1,8 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zsh/zsh_history
-HISTSIZE=3000
-SAVEHIST=3000
+HISTFILESIZE=100000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt autocd beep extendedglob nomatch notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -13,6 +14,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 # End of lines added by compinstall
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
 alias ls='ls --color' 
 alias rm='rm -i'
 alias mv='mv -i'
