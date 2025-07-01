@@ -41,7 +41,7 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 
-		"-jar" .. jdtls_dir .. "/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250131-0606.jar",
+		"-jar" .. jdtls_dir .. "/plugins/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar",
 		"-configuration",
 		config_dir,
 		"-data",
@@ -61,10 +61,10 @@ local config = {
 			project = {
 				outputPath = "bin",
 				sourcesPaths = { "src", "test" },
-                referencedLibraries = {
-                    "home/mani/eclipse-workspace/jogamp-all-platforms/jar/jogl-all.jar",
-                    "home/mani/eclipse-workspace/jogamp-all-platforms/jar/gluegen-rt.jar",
-                },
+				referencedLibraries = {
+					"home/mani/eclipse-workspace/jogamp-all-platforms/jar/jogl-all.jar",
+					"home/mani/eclipse-workspace/jogamp-all-platforms/jar/gluegen-rt.jar",
+				},
 			},
 
 			runtimes = {
