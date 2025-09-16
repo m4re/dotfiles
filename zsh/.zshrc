@@ -21,6 +21,7 @@ setopt HIST_VERIFY
 alias ls='ls --color' 
 alias rm='rm -i'
 alias mv='mv -i'
+alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -90,5 +91,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # %f Returns prompt color to white
 # PROMPT='%F{blue}%3~%f %# '
 
-# Init starship
+# Setup programs
 eval "$(starship init zsh)"
+eval "$(rbenv init -)"
+eval "$(zoxide init zsh)"
