@@ -34,9 +34,6 @@
 !qtile/
 !qtile/*
 
-!rofi/
-!rofi/*
-
 !yazi/
 !yazi/*
 
@@ -61,3 +58,4 @@ tmux/plugins
 
 !kanata/
 !kanata/*
+rofi
