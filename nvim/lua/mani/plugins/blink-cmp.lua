@@ -1,6 +1,16 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+	dependencies = {
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		config = function()
+			require("luasnip").setup({
+				history = true,
+				region_check_events = "InsertEnter",
+				delete_check_events = "TextChanged,InsertLeave",
+			})
+		end,
+	},
 	version = "1.*",
 	opts = {
 		snippets = { preset = "luasnip" },
