@@ -2,7 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
+    "height": 28, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -14,19 +14,26 @@
     ],
     "modules-right": [
         "pulseaudio",
+        "custom/seperator",
         //"network",
         "cpu",
+        "custom/seperator",
         "memory",
+        "custom/seperator",
         "disk",
+        "custom/seperator",
         "temperature",
+        "custom/seperator",
         //"backlight",
         //"keyboard-state",
         //"sway/language",
         //"battery",
         //"battery#bat2",
         "clock",
-        "power-profiles-daemon",
+        "custom/seperator",
+        //"power-profiles-daemon",
         "tray",
+        "custom/seperator",
         "custom/power"
     ],
     // Modules configuration
@@ -102,7 +109,7 @@
         "path": "/"
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 14,
         "spacing": 10
     },
     "clock": {
@@ -125,9 +132,9 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": [
-            "",
             "",
-            ""
+            "",
+            ""
         ]
     },
     "backlight": {
@@ -227,6 +234,11 @@
     "custom/power": {
         "format": "⏻ ",
         "tooltip": false,
-        "on-click": "/usr/bin/wofi-powermenu-hypr.sh"
-    }
+        "on-click": "powermenu_t1"
+    },
+    "custom/seperator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": "false"
+    },
 }
