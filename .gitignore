@@ -58,4 +58,8 @@ tmux/plugins
 
 !kanata/
 !kanata/*
+
 rofi
+
+!niri/
+!niri/*
