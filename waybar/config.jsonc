@@ -10,7 +10,8 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        //"hyprland/window"
+        "niri/window"
     ],
     "modules-right": [
         "pulseaudio",
