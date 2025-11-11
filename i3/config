@@ -73,7 +73,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+q exec kitty
+bindsym $mod+Enter exec kitty
 
 # kill focused window
 bindsym $mod+c kill
