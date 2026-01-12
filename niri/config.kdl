@@ -139,6 +139,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"ghostty$"#
+    open-maximized true
+}
+
+window-rule {
     draw-border-with-background false
 }
 
