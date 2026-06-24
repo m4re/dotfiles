@@ -95,6 +95,13 @@ layout {
     }
 }
 
+blur {
+    passes 3
+    offset 4
+    noise 0.02
+    saturation 1.5
+}
+
 gestures {
     hot-corners {
         off
@@ -125,6 +132,13 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
+}
+
+window-rule {
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -163,6 +177,7 @@ binds {
     Mod+X hotkey-overlay-title="Open KeePassXC" {spawn "keepassxc";}
     Mod+B hotkey-overlay-title="Open Firefox" {spawn "firefox";}
     Mod+E hotkey-overlay-title="Open Thunar" {spawn "thunar";}
+    Mod+A hotkey-overlay-title="Open Pavucontrol" {spawn "pavucontrol";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
