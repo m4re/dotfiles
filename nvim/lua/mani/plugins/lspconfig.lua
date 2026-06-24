@@ -95,7 +95,36 @@ return {
 						preferences = {
 							disableSuggestions = true,
 						},
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vim.fn.expand("$MASON/packages")
+									.. "/vue-language-server"
+									.. "/node_modules/@vue/language-server",
+								languages = { "vue" },
+							},
+						},
 					},
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				},
+				vue_ls = {
+					settings = {
+						vtsls = {
+							tsserver = {
+								globalPlugins = {
+									{
+										name = "@vue/typescript-plugin",
+										location = vim.fn.expand("$MASON/packages")
+											.. "/vue-language-server"
+											.. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
+										languages = { "vue" },
+										configNamespace = "typescript",
+									},
+								},
+							},
+						},
+					},
+					filetypes = { "vue" },
 				},
 				html = {},
 			}
@@ -109,21 +138,28 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua",
+				"vue_ls",
+				"vtsls",
 			})
+			for name, server in pairs(servers) do
+				vim.lsp.config(name, server)
+				vim.lsp.enable(name)
+			end
+
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-					glsl_analyzer = function()
-						require("lspconfig").glsl_analyzer.setup({ capabilities = capabilities })
-					end,
-				},
-			})
+			--require("mason-lspconfig").setup({
+			--	handlers = {
+			--		function(server_name)
+			--			local server = servers[server_name] or {}
+			--			server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+			--			require("lspconfig")[server_name].setup(server)
+			--		end,
+			--		glsl_analyzer = function()
+			--			require("lspconfig").glsl_analyzer.setup({ capabilities = capabilities })
+			--		end,
+			--	},
+			--})
 		end,
 	},
 }
