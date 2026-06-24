@@ -18,7 +18,9 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_VERIFY
-alias ls='ls --color' 
+
+# alias ls='ls --color' 
+alias ls='eza -lh'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cd='z'
