@@ -19,8 +19,8 @@
 !nvim/
 !nvim/*
 
-!nvim-new/
-!nvim-new/*
+!nvim-old/
+!nvim-old/*
 
 !systemd/
 !systemd/*
