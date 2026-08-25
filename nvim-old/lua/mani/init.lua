@@ -1,0 +1,6 @@
+require("mani.remap")
+require("mani.lazy")
+require("mani.lazy-plugins")
+require("mani.set")
+require("mani.autocmd")
+require("mani.colorscheme")
