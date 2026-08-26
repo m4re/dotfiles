@@ -20,6 +20,7 @@ vim.pack.add({
 	gh("nvim-tree/nvim-web-devicons"),
 	gh("nvim-lualine/lualine.nvim"),
 	gh("stevearc/oil.nvim"),
+	--gh("refractalize/oil-git-status.nvim"),
 	{ src = gh("nvim-treesitter/nvim-treesitter"), build = ":TSUpdate" },
 	gh("folke/which-key.nvim"),
 	gh("christoomey/vim-tmux-navigator"),
@@ -39,8 +40,9 @@ vim.pack.add({
 	gh("Bilal2453/luvit-meta"),
 	gh("folke/lazydev.nvim"),
 	{ src = gh("mrcjkb/rustaceanvim"), version = vim.version.range("^9") },
-    gh("j-hui/fidget.nvim"),
-    gh("stevearc/conform.nvim"),
+	gh("j-hui/fidget.nvim"),
+	gh("stevearc/conform.nvim"),
+	gh("nvim-mini/mini.nvim"),
 })
 
 require("blink.pairs").download():pwait(60000)
