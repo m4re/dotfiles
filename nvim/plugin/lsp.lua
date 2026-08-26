@@ -79,5 +79,5 @@ for _, server in ipairs(servers) do
 end
 
 vim.lsp.config("ts_ls", {
-	filetypes = { "typescript", "javascript", "javascript-react", "typescript-react", "vue" },
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
