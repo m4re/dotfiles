@@ -1,5 +1,1 @@
-require("fidget").setup {
-    opts = {
-
-    }
-}
+require("fidget").setup({})
