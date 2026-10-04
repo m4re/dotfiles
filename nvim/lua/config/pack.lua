@@ -15,6 +15,16 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("PackChanged", {
+	desc = "Build lua json5 parser",
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == "lua-json5" and (kind == "install" or kind == "update") then
+			vim.system({ "./install.sh" }, { cwd = ev.data.path })
+		end
+	end,
+})
+
 vim.pack.add({
 	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 	gh("nvim-tree/nvim-web-devicons"),
@@ -43,6 +53,12 @@ vim.pack.add({
 	gh("j-hui/fidget.nvim"),
 	gh("stevearc/conform.nvim"),
 	gh("nvim-mini/mini.nvim"),
+	gh("MeanderingProgrammer/render-markdown.nvim"),
+	gh("mfussenegger/nvim-dap"),
+	gh("nvim-neotest/nvim-nio"),
+	gh("rcarriga/nvim-dap-ui"),
+	gh("julianolf/nvim-dap-lldb"),
+	gh("Joakker/lua-json5"),
 })
 
 require("blink.pairs").download():pwait(60000)
